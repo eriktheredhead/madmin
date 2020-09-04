@@ -291,6 +291,90 @@
       </ul>
     </div>
 
+    <!-- add post modal -->
+    <div class="modal" id="post-modal">
+      <div class="modal-content">
+        <h4>Add Post</h4>
+        <form>
+          <div class="input-field">
+            <input type="text" id="title" />
+            <label for="title">Title</label>
+          </div>
+          <div class="input-field">
+            <select>
+              <option value="" disable selected>Select option</option>
+              <option value="1">Web Development</option>
+              <option value="2">Graphic Design</option>
+              <option value="3">Tech Gadgets</option>
+              <option value="4">Other</option>
+            </select>
+            <label>Category</label>
+          </div>
+          <div class="input-field">
+            <textarea
+              name="body"
+              id="body"
+              class="materialize-textarea"
+            ></textarea>
+            <label for="body">Body</label>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn blue white-text"
+            >Submit</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- add category modal -->
+    <div class="modal" id="category-modal">
+      <div class="modal-content">
+        <h4>Add Category</h4>
+        <form>
+          <div class="input-field">
+            <input type="text" id="title" />
+            <label for="title">Title</label>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn blue white-text"
+            >Submit</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- add user modal -->
+    <div class="modal" id="user-modal">
+      <div class="modal-content">
+        <h4>Add User</h4>
+        <form>
+          <div class="input-field">
+            <input type="text" id="name" />
+            <label for="name">Name</label>
+          </div>
+          <div class="input-field">
+            <input type="email" id="email" E />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="password" P />
+            <label for="password">Password</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="password2" />
+            <label for="password2">Confirm Password</label>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn blue white-text"
+            >Submit</a
+          >
+        </div>
+      </div>
+    </div>
+
     <!-- PreLoader -->
     <div class="loader preloader-wrapper big active">
       <div class="spinner-layer spinner-blue-only">
@@ -313,6 +397,7 @@
     ></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script src="js/chart.js"></script>
 
     <script>
@@ -330,7 +415,13 @@
           // init side-nav
           $('.button-collapse').sideNav();
 
-          // Counter
+          // init modal
+          $('.modal').modal();
+
+          // init select
+          $('select').material_select();
+
+          //init
           $('.count').each(function () {
             $(this)
               .prop('Counter', 0)
@@ -380,6 +471,7 @@
             Materialize.toast('Todo Removed', 3000);
             e.preventDefault();
           });
+          CKEDITOR.replace('body');
         });
       }, 1000);
     </script>
